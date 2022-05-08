@@ -1,38 +1,29 @@
 #include<iostream>
 using namespace std;
 
-int Add(int a, int b);//прототип функции
-int Sub(int a, int b);
-int Mul(int a, int b);
-double Div(int a, int b);
+//#define POINTERS_BASICS
 
 void main()
 {
 	setlocale(LC_ALL, "");
-	int a, b;
-	cout << "Введите два числа: "; cin >> a >> b;
-	int c = Add(a, b);//вызов функции
-	cout << a << " + " << b << " = " << c << endl;
-	cout << a << " - " << b << " = " << Sub(a, b) << endl;
-	cout << a << " * " << b << " = " << Mul(a, b) << endl;
-	cout << a << " / " << b << " = " << Div(a, b) << endl;
-}
-int Add(int a, int b)//реализация функции
-{
-	int c = a + b;
-	return c;
-}
-int Sub(int a, int b)
-{
-	//Subtraction - вычитание
-	return a - b;
-}
-int Mul(int a, int b)
-{
-	//Multiplication - умножение
-	return a * b;
-}
-double Div(int a, int b)
-{
-	return (double) a / b;
+#ifdef POINTERS_BASICS
+	int a = 2;
+	int* pa = &a;
+
+	cout << a << endl; //Вывод переменной а на экран
+	cout << &a << endl;
+	cout << pa << endl;
+	cout << *pa << endl;
+#endif // POINTERS_BASICS
+
+	const int n = 5;
+	int arr[n] = { 3,5,8,13,21 };
+	cout << arr << endl;
+	cout << arr[0] << endl;
+	cout << *&arr[0] << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << *(arr + i) << "\t";
+	}
+	cout << endl;
 }
